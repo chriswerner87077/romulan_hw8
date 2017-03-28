@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(char** info)
 {
-	printf("Usage ./romulan_hw8_task1 <str1> <str2>\n");
+	printf("Usage %s <str1> <str2>\n", *info);
 	printf("Program checks if str2 is part of str1\n");
 	exit(1);
 	return;
