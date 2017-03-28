@@ -17,8 +17,8 @@
 
 /* Function Prototypes */
 void Usage(char** info);
-//void GetOptions(char );
-//void PrintOption(char );
+void GetOptions(char *argv);
+//void PrintOption(char *select);
 
 /* Main Program */
 int main(int argc, char *argv[])
@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
 		Usage(argv);
 	}
 
+	GetOptions(argv[1]);
+
 	return 0;
 }
 
@@ -47,8 +49,23 @@ void Usage(char** info)
 	exit(1);
 	return;
 }
-/*char StringIn(char* str1, char* str2)
+void GetOptions(char *argv)
 {
-	exit(1);
-	return '0';
+	if(strcmp(argv, "-p") == 0 || strcmp(argv, "-u") == 0 || strcmp(argv, "-l") == 0)
+	{
+		
+	}
+	else
+	{
+		printf("%s is an in)valid flag; using default flag (-p).\n", argv);
+	}
+
+	return;
+}
+
+/* void PrintOption(char *select)
+{
+
+	return;
 }*/
+
