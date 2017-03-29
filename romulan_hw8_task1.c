@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 		printf("Missing required paramters\n");
 		Usage(argv);
 	}
+	StringIn(argv[1], argv[2]);
 	
 
 	return 0;
@@ -56,6 +57,16 @@ void Usage(char** info)
 }
 char StringIn(char* str1, char* str2)
 {
-	exit(1);
+	int str1leng = strlen(str1);
+	char s1;
+	for (int i = 0; i < str1leng; i++)
+	{
+		if (*(str2) == *(str1++))
+		{
+			s1 = *(str1);
+		}
+	}
+	printf("The first letter is %c\n", s1);
+
 	return '0';
 }
