@@ -24,22 +24,10 @@ int main(int argc, char *argv[])
 {
 	// declare variable 
 	char* start;
-	// if input equals 1 or 4 or more parameters, call usage
-	if (argc == 1 || argc >= 4)
+	// Call usage function if there are not two strings or if --help is 
+	// first string
+	if (argc != 3 || (strcmp(argv[1],"--help") == 0)) 
 	{
-		printf("Missing required parameters\n");
-		Usage(argv);
-	}
-	// if first input is --help, call Usage()
-	else if (strcmp(argv[1],"--help") == 0)
-	{
-		printf("Help information\n");
-		Usage(argv);
-	}
-	// if input equals 2 paramters (but NOT --help as 2nd) then call usage
-	else if (argc == 2)
-	{
-		printf("Missing required paramters\n");
 		Usage(argv);
 	}
 	// Call StringIn function and assign returned value to variable
@@ -64,6 +52,17 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(char** info)
 {
+	// Determine if help was called for
+	if (*(info+1) && (strcmp(*(info+1), "--help") == 0))
+	{
+		printf("Help information\n");
+	}
+	// if help was not called for, let user know too many
+	// or too few input parameters were used
+	else
+	{
+		printf("Too many or too few required parameters\n");
+	}
 	// Print the usage function information and exit
 	printf("Usage %s <str1> <str2>\n", *info);
 	printf("Program checks if str2 is part of str1\n");
