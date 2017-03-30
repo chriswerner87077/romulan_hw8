@@ -17,11 +17,13 @@
 
 /* Function Prototypes */
 void Usage(char** info);
-char StringIn(char* str1, char* str2);
+char* StringIn(char* str1, char* str2);
 
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	// declare variable 
+	char* start;
 	// if input equals 1 or 4 or more parameters, call usage
 	if (argc == 1 || argc >= 4)
 	{
@@ -40,8 +42,20 @@ int main(int argc, char *argv[])
 		printf("Missing required paramters\n");
 		Usage(argv);
 	}
-	StringIn(argv[1], argv[2]);
-	
+	// Call StringIn function and assign returned value to variable
+	start = StringIn(argv[1], argv[2]);
+	// use returned value to determine if string was found or not based
+	// whether or not the returned value exists (i.e. is the NULL char)
+	if (start)
+	{
+		printf("<%s> found in <%s>\n", argv[2], argv[1]);
+	}
+	else
+	{
+		printf("<%s> NOT found in <%s>\n", argv[2], argv[1]);
+	}
+	// print the returned string
+	printf("Returned string <%s>\n", start);
 
 	return 0;
 }
@@ -50,23 +64,28 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(char** info)
 {
+	// Print the usage function information and exit
 	printf("Usage %s <str1> <str2>\n", *info);
 	printf("Program checks if str2 is part of str1\n");
 	exit(1);
+
 	return;
 }
-char StringIn(char* str1, char* str2)
+char* StringIn(char* str1, char* str2)
 {
-	int str1leng = strlen(str1);
-	char s1;
-	for (int i = 0; i < str1leng; i++)
+	// declare and initialize variables
+	int str2leng = strlen(str2);
+	char* s1 = '\0';
+	// enter loop
+	do
 	{
-		if (*(str2) == *(str1++))
+		// compare length of str2 to str1 (where str1 is at in the loop)
+		if (strncmp(str2,str1, str2leng) == 0) 
 		{
-			s1 = *(str1);
+			// assign str1 current address to s1
+			s1 = str1;
 		}
-	}
-	printf("The first letter is %c\n", s1);
+	}while (*(str1++));
 
-	return '0';
+	return s1;
 }
