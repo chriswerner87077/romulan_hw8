@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 	}
 
 	GetOptions(argv[1]);
+	printf("%s\n", argv[1]);
 	PrintOption(argv[1]);
 
 	return 0;
