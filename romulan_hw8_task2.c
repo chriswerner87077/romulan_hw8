@@ -19,8 +19,8 @@
 #define MAXCHARS 100
 /* Function Prototypes */
 void Usage(char** info);
-void GetOptions(char *argv);
-//void PrintOption(char *select);
+char GetOptions(char *argv);
+void PrintOption(char *select);
 
 /* Main Program */
 int main(int argc, char *argv[])
@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 	}
 
 	GetOptions(argv[1]);
+	PrintOption(argv[1]);
 
 	return 0;
 }
@@ -51,25 +52,47 @@ void Usage(char** info)
 	exit(1);
 	return;
 }
-void GetOptions(char *argv)
+
+//Get input from user and return single letter p,u,l
+char GetOptions(char *argv)
 {
-	char str1[MAXCHARS];
-	char str2[MAXCHARS];
-	int i = 0;
-	float marker;
-	// print the selected option and default if incorrect option is used
+	char value;
 	if(strcmp(argv, "-p") == 0 || strcmp(argv, "-u") == 0 || strcmp(argv, "-l") == 0)
 	{
-		printf("Selecting option %s.\n", argv);
+		if(strchr(argv, 'p'))
+		{
+			value = 'p';
+		}
+
+		else if( strchr(argv, 'u'))
+		{
+			value = 'u';
+		}
+
+		else if( strchr(argv, 'l'))
+		{
+			value = 'l';
+		}
+		printf("Selecting option %c.\n", value);
 	}
 	else
 	{
 		printf("%s is an invalid flag; using default flag (-p).\n", argv);
 	}
+	return value;
+}
+
+//Print output based on return of GetOptions
+void PrintOption(char *select)
+{
+	static char str1[MAXCHARS];
+	static char str2[MAXCHARS];
+	int i = 0;
+	static float marker;
 	// prompt user for input
 	printf("Type input. Output will be based on option.\n");
 	printf("Enter Ctrl-D to stop user input: ");
-	// while loop to get adn process input, only exits when Ctrl-D entered
+	// while loop to get and process input, only exits when Ctrl-D entered
 	while (scanf("%f", &marker) != EOF)
 	{
 		// while loop to capture each character
@@ -78,11 +101,11 @@ void GetOptions(char *argv)
 		i = 0;
 		while (str1[i])
 		{
-			if (strcmp(argv,"-u") == 0)
+			if (strcmp(select,"-u") == 0)
 			{
 				str2[i] = toupper(str1[i]);
 			}
-			else if (strcmp(argv, "-l") == 0) 
+			else if (strcmp(select, "-l") == 0) 
 			{
 				str2[i] = tolower(str1[i]);
 			}
@@ -94,12 +117,7 @@ void GetOptions(char *argv)
 			i++;
 		}
 	}
+
 	return;
 }
-
-/* void PrintOption(char *select)
-{
-
-	return;
-}*/
 
