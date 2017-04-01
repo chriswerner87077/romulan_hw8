@@ -1,0 +1,96 @@
+commit 29ae52f32943ce6b475d0a1c6f01674809cfc1e3
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Sat Apr 1 05:22:30 2017 +0000
+
+    .gitignore added
+
+commit c43c3e8c3a8d22a257f03001e4764fcbdbb47f20
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Sat Apr 1 05:22:05 2017 +0000
+
+    Task2 now working and complete
+
+commit cab2d835c2bc7818cfaa8344dbb7c9f07857eb26
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Fri Mar 31 15:33:03 2017 +0000
+
+    task 2 printing extra
+
+commit ce2456eb060a71bb664305b41b91f1fb35b1313d
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Fri Mar 31 04:04:16 2017 +0000
+
+    returns char for printoptions
+
+commit 04c53e44f54318b501106e084c125441a46fefe2
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Mar 30 05:03:21 2017 +0000
+
+    Cleaned up code on task 1. Still fully functional
+
+commit 89cf2c0a53f18f3a80f36f292ee830a8fed9b7e4
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Mar 30 04:23:36 2017 +0000
+
+    Task 1 is complete. Everythign works
+
+commit 407256f7681b0033bcedcf6b5fe09c2f95360917
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Wed Mar 29 03:21:54 2017 +0000
+
+    Task 1 is StringIn is in progress - not complete. Returns value righta fter the one it should
+
+commit 546c161f94b2fea1d3d01d50ddecdf6856d16200
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Wed Mar 29 02:54:34 2017 +0000
+
+    Got it to work correctly. But not yet complete. The modifying of the text was done (incorrectly) in the GetOptions function rather than the PrintOption() function. Shoudl be a simple copy/paste. Also, the getoptions function needs to return the option (p, u, or l) that the user selected and pass it to the PrintOption function.
+
+commit db4b73d2715d7f5c76d10ab7e8002342a639032b
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Mar 28 21:03:47 2017 +0000
+
+    Partial task2
+
+commit ba5d48a2ca89fa898cb19e7d89738e4e1261a65f
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Tue Mar 28 19:40:03 2017 +0000
+
+    task 2 first commit & gitignore
+
+commit a45c6ff883315c24289f6d1fae1ad51fd84af8f0
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Tue Mar 28 03:49:05 2017 +0000
+
+    added script name to Usage function output. Task1.
+
+commit 52ba9a660df9d7263584944c86bf43e305f80ed1
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Tue Mar 28 03:39:54 2017 +0000
+
+    Usage function and initial input validation is working. Task 1.
+
+commit e81bfc5efc95747fba734842e2b9114d0008f544
+Merge: b06c961 26fa280
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Mar 23 16:16:44 2017 +0000
+
+    Merge branch 'master' of https://github.com/chriswerner87077/romulan_hw8
+
+commit b06c96144abb2f9ea19537f3c2e6a1ced8e5ecf5
+Author: Chris Werner <chris.lex.werner@gmail.com>
+Date:   Thu Mar 23 16:16:16 2017 +0000
+
+    first commit of task1
+
+commit 26fa280dba1012223c3837817a443f65330c272a
+Author: Sterling Woodruff <sterlingwoodruff@mail.weber.edu>
+Date:   Thu Mar 23 16:16:13 2017 +0000
+
+    Initial commit task2
+
+commit 8f588f260e3371be8e2e280df5a1f6b48c419ee1
+Author: chriswerner87077 <chris.lex.werner@gmail.com>
+Date:   Thu Mar 23 10:11:50 2017 -0600
+
+    Initial commit
