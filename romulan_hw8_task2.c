@@ -12,7 +12,7 @@
  * =====================================================================================
  */
 #include <stdio.h>		/* For Standard I/O */
-#include <stdlib.h>
+#include <stdlib.h>		/* For standard Library */
 #include <string.h>		/* For String Library */
 #include <ctype.h>		/* For Character Library */
 
@@ -20,11 +20,12 @@
 /* Function Prototypes */
 void Usage(char** info);
 char GetOptions(char *argv);
-void PrintOption(char *select);
+void PrintOption(char value);
 
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	char val;
 	// if does not equal 1 parameter, call usage
 	if (argc != 2)
 	{
@@ -37,10 +38,10 @@ int main(int argc, char *argv[])
 		printf("Help information\n");
 		Usage(argv);
 	}
-
-	GetOptions(argv[1]);
-	printf("%s\n", argv[1]);
-	PrintOption(argv[1]);
+	// Call GetOptions function and return it to val
+	val = GetOptions(argv[1]);
+	// Call PrintOption function
+	PrintOption(val);
 
 	return 0;
 }
@@ -49,64 +50,55 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(char** info)
 {
+	// Print usage on teh screen
 	printf("Usage %s [-p | -u | -l]\n", *info);
 	exit(1);
+
 	return;
 }
 
 //Get input from user and return single letter p,u,l
-char GetOptions(char *argv)
+char GetOptions(char* argv)
 {
-	char value;
+	// Declare variables
+	char* value;
+	// If the user input is one of the options, then parse input for option
 	if(strcmp(argv, "-p") == 0 || strcmp(argv, "-u") == 0 || strcmp(argv, "-l") == 0)
 	{
-		if(strchr(argv, 'p'))
-		{
-			value = 'p';
-		}
-
-		else if( strchr(argv, 'u'))
-		{
-			value = 'u';
-		}
-
-		else if( strchr(argv, 'l'))
-		{
-			value = 'l';
-		}
-		printf("Selecting option %c.\n", value);
+		value = strtok(argv,"-");
 	}
+	// Display and select default option, -p, if user input incorrect
 	else
 	{
 		printf("%s is an invalid flag; using default flag (-p).\n", argv);
+		value = "p";
 	}
-	return value;
+	printf("Selecting option %c.\n", *value);
+	return *value;
 }
 
-//Print output based on return of GetOptions
-void PrintOption(char *select)
+void PrintOption(char value)
 {
-	static char str1[MAXCHARS];
-	static char str2[MAXCHARS];
+	// Declare variables
+	char str1[MAXCHARS];
+	char str2[MAXCHARS];
 	int i = 0;
-	static float marker;
+	float sentinel;
 	// prompt user for input
 	printf("Type input. Output will be based on option.\n");
 	printf("Enter Ctrl-D to stop user input: ");
 	// while loop to get and process input, only exits when Ctrl-D entered
-	while (scanf("%f", &marker) != EOF)
+	while (scanf("%f", &sentinel) != EOF)
 	{
-		// while loop to capture each character
-		while ((str1[i++] = getchar()) != '\n')
-			;
 		i = 0;
-		while (str1[i])
+		// while loop to capture each character and assign modified str1 to str2
+		while ((str1[++i] = getchar()) != '\n')
 		{
-			if (strcmp(select,"-u") == 0)
+			if (value == 'u')
 			{
 				str2[i] = toupper(str1[i]);
 			}
-			else if (strcmp(select, "-l") == 0) 
+			else if (value == 'l') 
 			{
 				str2[i] = tolower(str1[i]);
 			}
@@ -114,9 +106,11 @@ void PrintOption(char *select)
 			{
 				str2[i] = str1[i];
 			}
+			// Print the modified character on the screen
 			printf("%c", str2[i]);
-			i++;
 		}
+		// Provide new line after modified string is completely printed
+		printf("\n");
 	}
 
 	return;
